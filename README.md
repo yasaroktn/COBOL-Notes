@@ -20,7 +20,7 @@ Bu bölümde  programda kullanılacak olan geçici veriler tanımlanır. Bu veri
 
 Bunlara Kod üzerinde örnek verecek olursak. 
 
-```jsx
+```vbnet
 01 AGE PIC 9(3).
 01 NAME PIG X(20).
 ```
@@ -29,7 +29,7 @@ Yukarıdaki örnekte, "AGE" adında üç basamaklı bir sayıyı ve "NAME" adın
 
 Dizeler için Örnek verecek olursak;
 
-```jsx
+```vbnet
 01 GRADES OCCURS 10 TIMES PIC 9(2).
 01 BOOK-TITLES OCCURS 50 TIMES PIC X(30).
 ```
@@ -38,7 +38,7 @@ Yukarıdaki örnekte, "GRADES" adında 10 elemanlı bir sayısal dizi ve "BOOK-T
 
 Sabitler için Örnek verecek olursak;
 
-```jsx
+```vbnet
 01 TAX-RATE PIC 9(3) VALUE 18.
 01 MASSAGE PIC X(30) VALUE "Welcome to the program!".
 ```
@@ -57,13 +57,13 @@ Bu sorulara yanıt arayalım.
 
 ### Baştaki 01 neyi temsil etmektedir ?
 
-COBOL verileri tanımlarken, veri hiyerarşisini ve ilişkilerini belirlemek için seviye numaralarını kullanır. Bu seviye numaraları veri öğesinin düzeyini ve ilişkisini gösterir.
+COBOL verileri tanımlarken, veri hiyerarşisini ve ilişkilerini belirlemek için seviye numaralarını kullanır. Bu seri numaraları veri öğesinin düzeyini ve ilişkisini gösterir.
 
 **01** seviye numarası en üst düzeyde bir veri öğesi tanımladığımızı belirtmektedir. Bu seviye numarası genelde bir kayıdın veya yapısal veri öğesinin tanımında kullanılır. Örneğin bir müşteri kaydını veya bir veri yapısını kaydederken **01** seviye numarasını kullanabiliriz.
 
 örnek;
 
-```jsx
+```vbnet
 01 CUSTOMER-RECORD.
    05 CUSTOMER-ID PIC 9(5).
    05 CUSTOMER-NAME PIC X(30).
@@ -90,12 +90,12 @@ PIC(Picture Clause) ve OCCURS programa dilinde veri tanımlaması yapılırken k
 - **PIC 9(5)** Beş basamaklı bir sayıyı temsil eder.
 - **PIC X(20)** 20 karakterlik bir metini temsil eder.
 
-2. **OCCURS** : OCCURS belirteci, bir dizi tanımlamak için kullanılır. OCCURS belirteci, dizinin eleman sayısını ve herbir elemanının veri tipini belirtir. 
+1. **OCCURS** : OCCURS belirteci, bir dizi tanımlamak için kullanılır. OCCURS belirteci, dizinin eleman sayısını ve herbir elemanının veri tipini belirtir. 
 
 Örneğin;
 
 - **01 GRADES OCCURS 10 TIMES PIC 9(2)** “GRADES” adında 10 elemanlı bir array tanımlar ve bu arrayin içersinde ki her eleman 2 basamaklı sayıları temsil eder.
-- **01 DAYS OCCURS 7 TIMES PIC X(10)** “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
+- **01 DAYS OCCURS 7 TIMES PIC X(10) “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
 
 Bu belirteçler, COBOL'da veri tanımlarken kullanılan önemli yapısal unsurlardır. PIC belirteci veri tipini ve formatını belirtirken, OCCURS belirteci dizilerin boyutunu ve elemanlarının veri tipini belirtir.
 
@@ -109,3 +109,99 @@ Tabii ki bu veri türleri sayısal ve metinsel veri türlerinden ibaret değildi
 - **V**: Varyanslı alfanumerik karakteri temsil eder. Değişken uzunlukta metinleri ifade etmek için kullanılır. Örneğin, **V(50)** maksimum 50 karakterlik bir metni temsil eder.
 - **S**: İşaret karakterini temsil eder. Pozitif veya negatif sayıları ifade etmek için kullanılır.
 - **P**: Ondalık ayırıcı karakterini temsil eder. Ondalık sayıları ifade etmek için kullanılır.
+
+Bu sorulara da cevap bulduktan sonra WORKING-STORAGE SECTION bölümünü sonlandırabiliriz. Detaylı bir giriş olmasada diğer sectionlar hakkında da bir kaç temel bilgiyi paylaşıcam böylece en azından FILE SECTION ve LINKAGE SECTION’nın temelde hangi amaçlar doğrultusunda kullanıldığı hakkında bilgi sahibi olabileceğiz.
+
+### FİLE SECTION
+
+Temel anlamda file section için, programın giriş/çıkış işlemleri için kullanılacağı dosyaların tanımlanması için kullanılan bölümdür diyebiliriz. Dosyalara erişim, okuma ve yazma işlemleri gibi temel dosya işlemlerinin öğrenilmesi için önemlidir.
+
+### LINKAGE SECTION
+
+LINKAGE SECTION programın başka programlara veya modüllere veri aktarımı yapması için kullanılan veri alanlarını tanımlar. İki program arasında veri paylaşımı yapabilmek amacıyla kullanılmaktadır.
+
+Kanaatimce COBOL programlama diline başlarken WORKING-STORAGE SECTION’ ı öğrenmek ve temel veri türlerini, değişken tanımlamalarını ve diğer atama işlemlerini benimsemek önceliğimiz olmalıdır. Daha sonrasında diğer dosya işlemleri gibi bölümlere geçiş yapmamız gerekmektedir.
+
+Böylece DATA DIVISION. bölümünü bitirip PROCEDURE DIVISION. Bölümüne geçiş yapmaya başlayabiliriz bu bölüm programın çalışma mantığını temsil eden bölüm olacaktır.
+
+### PROCEDURE DIVISION.
+
+PROCEDURE DIVISION, COBOL gerçek işlemlerin ve iş mantığının tanımlandığı bölümdür. Bu bölümde programın çalışma sürecinde gerçekleşecekler ve gerçekleşicek olan işlem adımları belirlenmektedir.
+
+PROCEDURE DIVISION şu unsurlardan oluşmaktadır:
+
+1. **PERFORM** : PERFORM ifadesi, belirli bir işlem veya işlemlerin yürütülmesini sağlamaktadır. PERFORM İfadesi şu işlevlere sahiptir;
+    - **İşlem Gruplarını Tekrarlama** : PERFORM ifadesi, belirli bir işlem grubunu tekrar etmek için kullanılabilmektedir. Bu aynı işlem grubunun birden fazla kez yürütülmesini sağlar. Örneğin:
+        
+        ```vbnet
+        PERFORM 5 TIMES
+        	DISPLAY "Hello, World!"
+        END-PERFORM.
+        ```
+        
+        Yukarıda ki örnekte “Hello, World!” ifadesi 5 kere ekrana yazılmaktadır.
+        
+    - **Alt Programları Çağırma** : PERFORM ifadesi, başka bir prosedür veyahut alt programın çağrılmasında da kullanılabilmektedir. Bu programın işlemlerinin yürütülmesini ve ardından programın ana akışına geri dönülebilmesine olanak tanır. Örneğin:
+        
+        ```vbnet
+        PERFORM process-data.
+        ```
+        
+    
+    Yukarıdaki örnekte “process-data” adlı bir prosedür çağrılır ve işlemler yürütülür.
+    
+    - **Döngü Yapma** : PERFORM ifadesi, bir döngü oluşturmak içinde kullanılabilinmektedir. PERFORM UNTİL veya PERFORM VARYING kullanarak belirli bir koşula kadar veya belirlemiş olduğumuz bir sayac değişkenini değiştirerek işlemleri tekrarlayabilir ve o koşul gerçekleşmeyi sonlandırdığı an işlemleri sonlandırabiliriz. Örneğin:
+        
+        ```vbnet
+        PERFORM UNTIL COUNT < 10 
+        	...
+        	İşlemler
+        	...
+        	ADD 1 TO COUNT
+        END-PERFORM.
+        ```
+        
+    
+    Yukarıda vermiş olduğum örnekte count değişkeni 10’dan küçükken işlemler gerçekleşecek bu belirlenmiş olan koşul artık gerçekleşmediği zamanda işlem tekrarı sonlanmış olacaktır.
+    
+2. **IF-ELSE** : IF-ELSE ifadesi, bir koşulun doğru veya yanlış olmasına karşılık farklı işlemler yapılmasını sağlar. IF ifadesi, belirli bir koşulu değerlendirir ve koşul gerçekleşiyorsa belirtilen kod bloğunu yürütür. ELSE ifadesi, IF  koşulunun yanlış olması halinde yürütülecek olan işlem bloğudur. Örneğin:
+    
+    ```vbnet
+    IF TOTAL > 1000
+    	DISPLAY "Total is greater than 1000"
+    ELSE 
+    	DISPLAY "Total is less than or equal to 1000"
+    END-IF.
+    ```
+    
+
+1. **MOVE** : MOVE ifadesi, bir değişkenin veya sabit bir değerin başka bir değişkene atamasını yaparken kullanılır. Örneğin:
+    
+    ```vbnet
+    MOVE 10 TO COUNT.
+    MOVE "Hello" TO MASSAGE.
+    ```
+    
+
+1. **COMPUTE** : COMPUTE ifadesi, matematiksel veya aritmatiksel işlemlerin gerçekleşmesi için kullanılmaktadır. Bu ifade, belirli bir formül veya işlemi kullanarak bir veya daha fazla değişkenin değerini hesaplayabilir.
+    
+    ```vbnet
+    COMPUTE TOTAL = PRICE * QUANTITY.
+    COMPUTE AVERAGE = (MARKS1 + MARKS2 + MARKS3) / 3.
+    ```
+    
+2. **DISPLAY** : DISPLAY ifadesi, bir metin veya değişkenin değerini çıktı olarak ekrana veya başka bir çıktı cihazına göndermek için kullanılmaktadır. Örneğin :
+    
+    ```vbnet
+    DISPLAY "Hello, World!".
+    DISPLAY "Total: " TOTAL.
+    ```
+    
+3. **ACCEPT** : ACCEPT ifadesi, kullanıcıdan girdi almak için kullanılır. Örneğin:
+    
+    ```vbnet
+    DISPLAY "Hello, What is your name? : ".
+    ACCEPT NAME.
+    
+    DISPLAY "Nice to meet you " NAME .
+    ```
