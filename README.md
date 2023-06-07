@@ -57,7 +57,7 @@ Bu sorulara yanıt arayalım.
 
 ### Baştaki 01 neyi temsil etmektedir ?
 
-COBOL verileri tanımlarken, veri hiyerarşisini ve ilişkilerini belirlemek için seviye numaralarını kullanır. Bu seri numaraları veri öğesinin düzeyini ve ilişkisini gösterir.
+COBOL verileri tanımlarken, veri hiyerarşisini ve ilişkilerini belirlemek için seviye numaralarını kullanır. Bu seviye numaraları veri öğesinin düzeyini ve ilişkisini gösterir.
 
 **01** seviye numarası en üst düzeyde bir veri öğesi tanımladığımızı belirtmektedir. Bu seviye numarası genelde bir kayıdın veya yapısal veri öğesinin tanımında kullanılır. Örneğin bir müşteri kaydını veya bir veri yapısını kaydederken **01** seviye numarasını kullanabiliriz.
 
@@ -90,12 +90,12 @@ PIC(Picture Clause) ve OCCURS programa dilinde veri tanımlaması yapılırken k
 - **PIC 9(5)** Beş basamaklı bir sayıyı temsil eder.
 - **PIC X(20)** 20 karakterlik bir metini temsil eder.
 
-1. **OCCURS** : OCCURS belirteci, bir dizi tanımlamak için kullanılır. OCCURS belirteci, dizinin eleman sayısını ve herbir elemanının veri tipini belirtir. 
+2. **OCCURS** : OCCURS belirteci, bir dizi tanımlamak için kullanılır. OCCURS belirteci, dizinin eleman sayısını ve herbir elemanının veri tipini belirtir. 
 
 Örneğin;
 
 - **01 GRADES OCCURS 10 TIMES PIC 9(2)** “GRADES” adında 10 elemanlı bir array tanımlar ve bu arrayin içersinde ki her eleman 2 basamaklı sayıları temsil eder.
-- **01 DAYS OCCURS 7 TIMES PIC X(10) “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
+- **01 DAYS OCCURS 7 TIMES PIC X(10)** “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
 
 Bu belirteçler, COBOL'da veri tanımlarken kullanılan önemli yapısal unsurlardır. PIC belirteci veri tipini ve formatını belirtirken, OCCURS belirteci dizilerin boyutunu ve elemanlarının veri tipini belirtir.
 
