@@ -205,3 +205,4 @@ PROCEDURE DIVISION şu unsurlardan oluşmaktadır:
     
     DISPLAY "Nice to meet you " NAME .
     ```
+Bu aşamada başlangıç seviyesinde bir proje yapmayı denedim [buradan] (https://github.com/yasaroktn/COBOL-Notes/blob/master/first.cob) ulaşabilirsiniz.
