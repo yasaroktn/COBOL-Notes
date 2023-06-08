@@ -22,7 +22,7 @@ Bunlara Kod üzerinde örnek verecek olursak.
 
 ```vbnet
 01 AGE PIC 9(3).
-01 NAME PIG X(20).
+01 NAME PIC X(20).
 ```
 
 Yukarıdaki örnekte, "AGE" adında üç basamaklı bir sayıyı ve "NAME" adında 20 karakterlik bir metni saklamak için iki değişken tanımlanmıştır.
@@ -95,7 +95,7 @@ PIC(Picture Clause) ve OCCURS programa dilinde veri tanımlaması yapılırken k
 Örneğin;
 
 - **01 GRADES OCCURS 10 TIMES PIC 9(2)** “GRADES” adında 10 elemanlı bir array tanımlar ve bu arrayin içersinde ki her eleman 2 basamaklı sayıları temsil eder.
-- **01 DAYS OCCURS 7 TIMES PIC X(10) “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
+- **01 DAYS OCCURS 7 TIMES PIC X(10)** “DAYS” adında 7 elemanlı bir array tanımlar ve her elemanı 10 karakterlik bir metni temsil eder.
 
 Bu belirteçler, COBOL'da veri tanımlarken kullanılan önemli yapısal unsurlardır. PIC belirteci veri tipini ve formatını belirtirken, OCCURS belirteci dizilerin boyutunu ve elemanlarının veri tipini belirtir.
 
@@ -105,7 +105,7 @@ Aslında buraya kadar yazıyı takip eden herkesin tahmin edebileceği üzere **
 
 Tabii ki bu veri türleri sayısal ve metinsel veri türlerinden ibaret değildir. Sayısal ve Metinsel veri türleri dışında diğer veri türlerini temsil eden özel karakterler şöyledir ;
 
-- **A**: Sayısal karakteri temsil eder.  **X** ile aynı işlevi görür.
+- **A**: Metinsel karakteri temsil eder.  **X** ile aynı işlevi görür.
 - **V**: Varyanslı alfanumerik karakteri temsil eder. Değişken uzunlukta metinleri ifade etmek için kullanılır. Örneğin, **V(50)** maksimum 50 karakterlik bir metni temsil eder.
 - **S**: İşaret karakterini temsil eder. Pozitif veya negatif sayıları ifade etmek için kullanılır.
 - **P**: Ondalık ayırıcı karakterini temsil eder. Ondalık sayıları ifade etmek için kullanılır.
