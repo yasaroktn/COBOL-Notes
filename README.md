@@ -86,7 +86,7 @@ Tam şu esnada aklımıza neden 2. düzey ve 3. düzey veri öğelerinin **02 03
 ```vbnet
 77 STUDENT-ID PIC 9(5).
 77 STUDENT-NAME PIC X(30).
-´´´
+```
 
 ### PIC ve OCCURS nedir?
 
