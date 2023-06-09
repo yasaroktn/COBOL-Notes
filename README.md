@@ -79,6 +79,15 @@ Bu şekilde, **01** seviye numarası, COBOL'da veri tanımlarken hiyerarşiyi ve
 
 Tam şu esnada aklımıza neden 2. düzey ve 3. düzey veri öğelerinin **02 03** olarak değilde **05 10** olarak numaralandırıldığı sorusu geliyor olabilir bunun sebebi diğer seviye numaraları olan (02, 03, vb.), COBOL'da kullanılan yaygın seviye numaraları olmayıp daha düşük düzeylerde özel durumlar için kullanılabilir. Ancak, genel uygulama, 01 seviyesinin en üst düzey tanımı olduğu, 05 seviyesinin ikinci düzey tanımları temsil ettiği ve 10 seviyesinin alt bileşenleri temsil ettiğinin bilinmesi başlangıç seviyesinde yeterli bir bilgi olacaktır.
 
+**Ek Bilgi :** Eğer ki bir değişken tanımlanıyorken tek bir değişken tanımlanıyorsa yani ortada bir gruplandırma söz konusu değilse, bu durumda **77** düzeyini kullanabiliriz. Eğer ki böyle bir durumda **01** seviye numarasını kullanırsak hiyerarşik bir veri öğesi grubu oluşturuyormuşuz gibi bir algı oluşabilir. Syntax açısından iki kullanımda doğrudur lakin hiyerarşi göz edikmeksizin oluşturulan tek bir değişkenin tanımlandığı değişkenlerde yaygın kullanım **77** düzeyinin kullanılmasıdır.
+
+Örnek;
+
+```vbnet
+77 STUDENT-ID PIC 9(5).
+77 STUDENT-NAME PIC X(30).
+´´´
+
 ### PIC ve OCCURS nedir?
 
 PIC(Picture Clause) ve OCCURS programa dilinde veri tanımlaması yapılırken kullanılan iki önemli belirteçtir:
