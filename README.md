@@ -1,12 +1,30 @@
 # COBOL NOTLARIM
 
-### INDENTIFICATION DIVISION.
+### IDENTIFICATION DIVISION.
 
-Bu satır, programın kimlik bilgilerini tanımlayan bölümü temsil eder.
-
-### PROGRAM-ID ILK_PROGRAM.
-
-bu satırda programın benzersiz kimliği belirlenir yani bu kod bloğuna göre bu programın adı “ILK_PROGRAM”dır.
+INDETIFICATION DIVISION bölümü COBOL programının başlangıcının ve programın kimlik bilgilerinin belirlendiği bölümdür. Bu bölümde programın adı, yazarının adı, sürümü, oluşturulma tarihi gibi bilgiler yer alabilmektedir. IDENTIFICATION DIVISION bölümü genelde aşağıda ki bileşenleri içermektedir.
+1. **PROGRAM-ID**: Bu bileşen, COBOL programının adını belirtir. PROGRAM-ID bileşeninin ardından Programın adı yazılmaktadır.
+Örnek:
+```vbnet
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ILK-PROGRAM.
+```
+2. **AUTHOR**: Bu bileşen, COBOL programının yazarının belirtildiği bileşendir. AUTHOR bileşeninin ardından programın yazarının adı veya kullanıcı adı yazılmalıdır.
+Örnek:
+```vbnet
+AUTHOR. Yasar Okten.
+```
+3. **INSTALLATION**: Bu bileşen, programın hangi kuruluş veyahut hangi departman tarafından oluşturulduğunun belirtildiği bileşendir. INSTALLATION bileşenin ardından kuruluş veya departmanın adı yazılır.
+Örnek:
+```vbnet
+INSTALLATION. 42 Istanbul.
+```
+4. **DATE-WRITTEN**: Bu bileşen, programın oluşturulma tarihini belirtmek istediğimizde kullanılan bileşendir. DATE-WRITTEN bileşeninin ardından MM/DD/YYYY formatına uyacak şekilde tarih belirtilir.
+Örnek:
+```vbnet
+DATE-WRITTEN. 06/10/2023.
+```
+IDENTIFICATION DIVISION bölümü, programın yönetimi, belgelenmesi ve anlaşılır olması açısından önemli bir bölümdür. 
 
 ### DATA DIVISION.
 
