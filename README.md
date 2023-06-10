@@ -215,3 +215,29 @@ PROCEDURE DIVISION şu unsurlardan oluşmaktadır:
     DISPLAY "Nice to meet you " NAME .
     ```
 Bu aşamada başlangıç seviyesinde bir proje yapmayı denedim [buradan](https://github.com/yasaroktn/COBOL-Notes/blob/master/first.cob) ulaşabilirsiniz.
+
+### COBOL SÜTUN YAPISI
+
+COBOL programlama dili geleneksel olarak ***sütun bazlı*** bir programlama dilidir.Bu stunlar belirli türde ki bilgileri temsil eder COBOL’ da kullanılan temel sütunlar şunlardır:
+
+**1-6 Sütun Arası (Sequence Field)**: Bu sütunlar genellikle etiketleme veyahut numaralandırma amacıyla kullanılmaktadır. Programcılar programlardaki farklı parçaları belirlerken bu sütunları kullanabilmektedir. Eğer kullanımına gerek duyulmuyorsa bu sütunlar boşta bırakılabilir.
+
+**7. Sütun (Indicator Field)** : Bu sütun eğer ki içinde bulunduğu satırı yorum satırı olarak kullanacaksak veyahut içinde bulunduğu satır kendisinden bir önce gelen satırın devamı ise kullanırız. Bunlar dışında bu sütunu boş bırakmamız gerekmektedir. Eğer ki satırı yorum satırı olarak kullanacaksak 7. Sütuna bir “*” eğer ki önceki satırın devamı olarak kullanacaksak 7. Sütuna bir “-” bırakmamız yeterli olacaktır.
+
+**8-11 Sütun Arası (Margin A)** : 8-11 Sütunları bir verinin düzeyini belirlerken kullanılır. Bir verinin düzeyi diğer verilerle olan ilişkisini ve hiyerarşisini ifade eder. Her düzey bir veri veya veri grubunu temsil eder.
+
+Düzey numaraları daha öncede bahsettiğimiz gibi verilerin iç içe geçmiş yapılarını belirlemekte kullanılır. Örnek :
+
+```vbnet
+01 EMPLOYEE-RECORD.
+	05 EMPLOYEE-ID    PIC X(10).
+	05 EMPLOYEE-NAME  PIC X(50).
+```
+
+Yukarıda ki 01 düzeyi en yüksek düzeyi temsil etmektedir. EMPLOYEE-RECORD adında bir kayıdı oluşturmaktadır. 05 düzeyleri ise bu kaydın alt verilerini temsil etmektedir.
+
+**12-72 Sütun Arası (Margin B)** : Bu sütunlar programın kodunu içermektedir. COBOL kodunun asıl işlevi burada yer almaktadır. 
+
+**73-80 Sütun Arası (Identification Area)** : Bu sütunlar programcının ufak açıklamalarını veya yorumlarını içerdiği alandır. Kodun anlaşılmasını kolaylaştırmak için kullanılır. Bu sütunları programcılar genelde notlarını veya değişiklik tarihlerini tutmak için kullanır.
+
+COBOL sütün yapısı sayesinde programın okunabilirliği ve anlaşılabilirliği artmaktadır. Programcılar belirli sütunlardaki bilgilere göre programın hangi bölümlerinin ne iş yaptığını kolay bir şekilde ayırt edebilmektedir.
